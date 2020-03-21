@@ -1,0 +1,21 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 13
+      - run: npm ci
+      - run: npm run build
+      - run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.SSH_KEY_GOALS_CARLTONJOSEPH" }}" >> ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+      - run: npm run deploy
