@@ -15,7 +15,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: |
-          mkdir ~/.ssh
-          echo "${{ secrets.SSH_KEY_GOALS_CARLTONJOSEPH }}" >> ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+          mkdir ./.ssh
+          echo "${{ secrets.SSH_KEY_GOALS_CARLTONJOSEPH }}" >> ./.ssh/id_rsa
+          chmod 600 ./.ssh/id_rsa
       - run: npm run deploy

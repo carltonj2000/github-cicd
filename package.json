@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "webpack --mode production src/app.js -o public/bundle.js",
-    "deploy": "rsync -avz public/ goals@carltonjoseph.com:/mnt/volume_sfo2_02/cj/carltonjoseph/githubcicd/ --delete",
-    "deploy:local": "rsync -avz -e \"ssh -i ./.ssh/id_rsa -o StrictHostKeyChecking=no\" public/ goals@carltonjoseph.com:/mnt/volume_sfo2_02/cj/carltonjoseph/githubcicd/ --delete"
+    "deploy:nossh1": "rsync -avz public/ goals@carltonjoseph.com:/mnt/volume_sfo2_02/cj/carltonjoseph/githubcicd/ --delete",
+    "deploy": "rsync -avz -e \"ssh -i ./.ssh/id_rsa -o StrictHostKeyChecking=no\" public/ goals@carltonjoseph.com:/mnt/volume_sfo2_02/cj/carltonjoseph/githubcicd/ --delete"
   },
   "keywords": [],
   "author": "",
